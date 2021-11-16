@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+   <head th:replace="layouts/base-layout::head"></head>
+   	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet"> 
+   <style type="text/css">
+   		body{
+		    font-family: 'Comfortaa', cursive;
+		}
+
+   		.formulario{
+			width:90%;
+			margin:auto;
+			
+		}
+
+   </style>
+   <body>
+   		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/auth/login}">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/auth/registro}">Registrate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Contáctanos</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav><br>
+
+
+    <div class="formulario">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div th:if="${param.error}" class="alert alert-danger mb-3">Credenciales incorrectas</div>
+                <div class="card">
+                    <div class="card-header">
+                        <center><h2>Iniciar sesión</h2></center>
+                    </div>
+                    <div class="card-body">
+
+                        <form id="loginform" method="POST" th:action="@{/auth/login-post}" role="form">
+                            <div class="row form-group">
+                                <label class="col-md-3">Usuario</label><input type="text" name="username"
+                                    class="form-control col-md-7" />
+                            </div>
+
+                            <div class="row form-group">
+                                <label class="col-md-3">Contraseña</label>
+                                <input type="password" name="password" class="form-control col-md-7" />
+                            </div>
+								<br>
+                            <div class="d-grid gap-2 col-3 mx-auto">
+                                <center><input type="submit" value="Enviar" class="btn btn-success btn-block col-md-7 affset-3"/></center>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    	
+    	
+    
+   </body>
+</html>
