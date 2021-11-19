@@ -48,6 +48,34 @@
     </div><br>
     <div class="container">
     	<h4>Productos</h4><hr>
+    	<a th:href="@{/new}" class="btn btn-primary">Nuevo</a><br>
+    	<br>
+    	<table class="table table-dark table-hover">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nombre</th>
+					<th>Precio</th>
+					<th>Stock</th>
+					<th>Descripción</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+		<tbody >
+			<tr th:each="producto:${productos}">
+				<td th:text="${producto.id}"></td>
+				<td th:text="${producto.nombre}"></td>
+				<td th:text="${producto.precio}"></td>
+				<td th:text="${producto.stock}"></td>
+				<td th:text="${producto.descripcion}"></td>
+				<td>
+					<a th:href="@{/editar/}+${producto.id}" class="btn btn-warning">Editar</a>
+		
+					<a th:href="@{/eliminar/}+${producto.id}" class="btn btn-danger"> Eliminar </a>
+				</td>
+			</tr>
+		</tbody>
+		</table>
 	</div>
    
 
