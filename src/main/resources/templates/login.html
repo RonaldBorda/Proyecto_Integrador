@@ -7,14 +7,23 @@
    <style type="text/css">
    		body{
 		    font-family: 'Comfortaa', cursive;
+		    background-image: url("https://images.pexels.com/photos/1631677/pexels-photo-1631677.jpeg?cs=srgb&dl=pexels-abdullah-ghatasheh-1631677.jpg&fm=jpg");
+            background-repeat: no-repeat;
+            background-size: cover; 
 		}
 
    		.formulario{
-			width:90%;
+			width:70%;
 			margin:auto;
-			
 		}
-
+		.formulario h1{
+			color:white;
+			font-weight: bold;
+		}
+		.formulario label{
+			color:white;
+			font-weight: bold;
+		}
    </style>
    <body>
    		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -44,18 +53,17 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div th:if="${param.error}" class="alert alert-danger mb-3">Credenciales incorrectas</div>
-                <div class="card">
-                    <div class="card-header">
-                        <center><h2>Iniciar sesión</h2></center>
+                <div class=""><br>
+                    <div class="">
+                        <center><h1>Iniciar sesión</h1></center>
                     </div>
-                    <div class="card-body">
+                    <div class="">
 
                         <form id="loginform" method="POST" th:action="@{/auth/login-post}" role="form">
                             <div class="row form-group">
                                 <label class="col-md-3">Usuario</label><input type="text" name="username"
                                     class="form-control col-md-7" />
-                            </div>
-
+                            </div><br>
                             <div class="row form-group">
                                 <label class="col-md-3">Contraseña</label>
                                 <input type="password" name="password" class="form-control col-md-7" />

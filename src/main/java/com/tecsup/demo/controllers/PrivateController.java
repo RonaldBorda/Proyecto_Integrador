@@ -59,7 +59,7 @@ public class PrivateController {
 	@PostMapping("/save")
 	public String save(@Validated Producto p,Model model) {
 		productoService.save(p);
-		return "redirect:/listar";
+		return "redirect:/private/listar";
 	}
 	@GetMapping("/editar/{id}")
 	public String editar(@PathVariable int id, Model model) {
@@ -70,7 +70,7 @@ public class PrivateController {
 	@GetMapping("/eliminar/{id}")
 	public String delete(Model model,@PathVariable int id) {
 		productoService.delete(id);
-		return "redirect:/listar";
+		return "redirect:/private/listar";
 	}
 	
 }
