@@ -7,12 +7,22 @@
    <style type="text/css">
    		body{
 		    font-family: 'Comfortaa', cursive;
+		    background-image: url("https://images.pexels.com/photos/1631677/pexels-photo-1631677.jpeg?cs=srgb&dl=pexels-abdullah-ghatasheh-1631677.jpg&fm=jpg");
+            background-repeat: no-repeat;
+            background-size: cover; 
 		}
 
    		.formulario{
 			width:40%;
 			margin:auto;
-			
+		}
+		.formulario form h1{
+			color:white;
+			font-weight: bold;
+		}
+		.formulario label{
+			color:white;
+			font-weight: bold;
 		}
    </style>
    <body>
@@ -41,7 +51,7 @@
     <div class="formulario">
         <br>
         <form th:action="@{/auth/registro}"th:object="${usuario}"method="POST">
-            <center><h1>Registrate</h1></center><hr>
+            <center><h1>Registrate</h1></center>
             <div class="mb-3">
                 <div class="col-auto">
                     <label for="exampleInputEmail1" class="form-label">Nombre</label>
