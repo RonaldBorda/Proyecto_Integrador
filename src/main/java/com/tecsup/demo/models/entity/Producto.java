@@ -1,5 +1,6 @@
 package com.tecsup.demo.models.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +21,7 @@ public class Producto {
 	@NotNull
 	private double precio;
 	@NotNull
+	@Column(length = 400)
 	private String descripcion;
 	
 	public Producto(int id, @NotNull String nombre, @NotNull int stock, @NotNull double precio,

@@ -68,7 +68,7 @@ public class Usuario implements Serializable {
 	public Usuario() {
 		super();
 	}
-	private static final long serialVersionUID = 1L;
-	
+
+	private static final long serialVersionUID = 7712767292276024601L;
 	
 }
