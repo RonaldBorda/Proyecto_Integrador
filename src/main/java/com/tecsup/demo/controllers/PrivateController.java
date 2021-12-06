@@ -10,6 +10,7 @@ import java.util.Optional;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.apache.tomcat.jni.File;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -65,8 +66,20 @@ public class PrivateController {
 		return "formProducto";
 	}
 	@PostMapping("/save")
-	public String save(@Valid @ModelAttribute Producto p, BindingResult result,
-			Model model) {
+	public String save(@RequestParam(name="file",required=false) MultipartFile foto, Producto p,
+			RedirectAttributes flash) {
+		if(!foto.isEmpty()) {
+			String ruta="D://Temp//uploads";
+			
+			try {
+				byte[] bytes = foto.getBytes();
+				Path rutaAbsoluta = Paths.get(ruta+"//"+foto.getOriginalFilename());
+				Files.write(rutaAbsoluta, bytes);
+				p.setFoto(foto.getOriginalFilename());
+			}catch(Exception e){
+				
+			}
+		}
 		
 		productoService.save(p);
 		return "redirect:/private/listar";

@@ -56,7 +56,7 @@
 	<br>
 
 	<div class="formulario">
-		<div class="">
+		<div>
 			<form th:action="@{/private/save}" th:object=${producto} method="POST" enctype="multipart/form-data"><br>
 				<div>
 					<center><h1>Productos</h1></center>
@@ -76,13 +76,16 @@
 						<label>Stock</label>
 						<input th:field="*{stock}" required type="text" class="form-control" />
 					</div>
-					
+					<div class="form-group">
+						<label>Imagen</label>
+						<input type="file" name="file" class="form-control" />
+					</div>
 					<div class="form-group">
 						<label>Descripción</label>
 						<textarea th:field="*{descripcion}" required type="text" class="form-control" ></textarea>
 					</div>
 				</div>
-				<div class="">
+				<div>
 					<center><input type="submit" value="Guardar" class="btn btn-success"></center>
 				</div>
 		</div>
