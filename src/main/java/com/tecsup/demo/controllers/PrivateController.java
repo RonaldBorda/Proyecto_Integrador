@@ -41,7 +41,7 @@ public class PrivateController {
 		return "index";
 	}
 	/*
-	 * Productos
+	 * Producto
 	 */
 	@GetMapping("/listar")
 	public String listar(Model model) {
