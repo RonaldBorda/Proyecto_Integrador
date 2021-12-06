@@ -22,6 +22,16 @@ public class Producto {
 	@NotNull
 	private String descripcion;
 	
+	private String imagen;
+	
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
 	public Producto(int id, @NotNull String nombre, @NotNull int stock, @NotNull double precio,
 			@NotNull String descripcion) {
 		super();

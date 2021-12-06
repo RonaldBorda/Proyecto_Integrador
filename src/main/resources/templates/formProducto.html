@@ -15,7 +15,7 @@
 		width: 45%;
 		margin: auto;	
 		background-color: #ABB2B9;
-		height: 530px;
+		height: 560px;
 		border-radius: 10px;
 	}
 	.formulario h1{
@@ -57,7 +57,7 @@
 
 	<div class="formulario">
 		<div class="">
-			<form th:action="@{/private/save}" th:object=${producto} method="POST"><br>
+			<form th:action="@{/private/save}" th:object=${producto} method="POST" enctype="multipart/form-data"><br>
 				<div>
 					<center><h1>Productos</h1></center>
 				</div>
@@ -66,19 +66,20 @@
 					<div class="form-group">
 						<input type="hidden" th:field="*{id}">
 						<label>Nombre</label>
-						<input th:field="*{nombre}" type="text" class="form-control" />
+						<input th:field="*{nombre}" required type="text" class="form-control" />
 					</div>
 					<div class="form-group">
 						<label>Precio</label>
-						<input th:field="*{precio}" type="text" class="form-control" />
+						<input th:field="*{precio}" required type="text" class="form-control" />
 					</div>
 					<div class="form-group">
 						<label>Stock</label>
-						<input th:field="*{stock}" type="text" class="form-control" />
+						<input th:field="*{stock}" required type="text" class="form-control" />
 					</div>
+					
 					<div class="form-group">
 						<label>Descripción</label>
-						<textarea th:field="*{descripcion}" type="text" class="form-control" ></textarea>
+						<textarea th:field="*{descripcion}" required type="text" class="form-control" ></textarea>
 					</div>
 				</div>
 				<div class="">
