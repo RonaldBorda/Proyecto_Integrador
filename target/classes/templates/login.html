@@ -13,8 +13,11 @@
 		}
 
    		.formulario{
-			width:70%;
+			width:40%;
 			margin:auto;
+			background-color:#ABB2B9;
+			height:330px;
+			border-radius:10px;
 		}
 		.formulario h1{
 			color:white;
@@ -51,22 +54,21 @@
 
     <div class="formulario">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-9">
                 <div th:if="${param.error}" class="alert alert-danger mb-3">Credenciales incorrectas</div>
-                <div class=""><br>
-                    <div class="">
+                <div><br>
+                    <div>
                         <center><h1>Iniciar sesión</h1></center>
                     </div>
-                    <div class="">
-
+                    <div>
                         <form id="loginform" method="POST" th:action="@{/auth/login-post}" role="form">
                             <div class="row form-group">
-                                <label class="col-md-3">Usuario</label><input type="text" name="username"
-                                    class="form-control col-md-7" />
+                                <label class="col-md-3">Usuario</label>
+                                <input type="text" placeholder="Ingresar usuario" name="username" class="form-control col-md-7" />
                             </div><br>
                             <div class="row form-group">
                                 <label class="col-md-3">Contraseña</label>
-                                <input type="password" name="password" class="form-control col-md-7" />
+                                <input type="password" placeholder="Ingresar contraseña" name="password" class="form-control col-md-7" />
                             </div>
 								<br>
                             <div class="d-grid gap-2 col-3 mx-auto">
