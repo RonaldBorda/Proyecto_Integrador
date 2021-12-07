@@ -58,6 +58,7 @@
 					<th>Nombre</th>
 					<th>Precio</th>
 					<th>Stock</th>
+					<th>Imagen</th>
 					<th>Descripción</th>
 					<th colspan="2">Acciones</th>
 				</tr>
@@ -68,6 +69,10 @@
 					<td th:text="${producto.nombre}"></td>
 					<td th:text="${producto.precio}"></td>
 					<td th:text="${producto.stock}"></td>
+					
+					<td>
+						<img th:src="@{'/uploads/'+${producto.foto}}" th:alt="${producto.foto}" style="max-width:90%; max-height:100%">
+					</td>
 					<td th:text="${producto.descripcion}"></td>
 					<td>
 						<a th:href="@{/private/editar/}+${producto.id}" class="btn btn-success">
