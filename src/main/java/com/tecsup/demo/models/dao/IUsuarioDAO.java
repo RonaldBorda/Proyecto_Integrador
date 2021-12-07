@@ -9,3 +9,4 @@ import com.tecsup.demo.models.entity.Usuario;
 public interface IUsuarioDAO extends JpaRepository<Usuario, Long> {
 	public Usuario findByUsername(String username);
 }
+

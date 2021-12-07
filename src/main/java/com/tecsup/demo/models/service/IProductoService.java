@@ -11,4 +11,5 @@ public interface IProductoService {
 	public Optional<Producto>listarId(int id);
 	public int save(Producto p);
 	public void delete(int id);
+	Iterable<Producto> findAll();
 }
