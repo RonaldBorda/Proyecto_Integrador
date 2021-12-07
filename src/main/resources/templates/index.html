@@ -9,9 +9,55 @@
 	body {
 		font-family: 'Comfortaa', cursive;
 	}
+	
+	tbody {
+  		text-align: center	
+	}
 </style>
 
+<head>
+	<title></title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		section{
+			width: 100%;
+			
+			
+			background: linear-gradient(45deg,red,rgb(164, 225, 255),rgb(0, 128, 128),black);
+			background-size: 400% 400%;
+			position: relative;
+			animation: cambiar 10s ease-in-out infinite;
+			background-attachment: scroll;
+			background-repeat:repeat-y;
+			position:-ms-page;
+			position: sticky;
+			top:80px;
+			display:inline-block;
+			overflow:auto
+    		
+        
+		}
+		
+
+		@keyframes cambiar{
+			0%{background-position: 0 50%;}
+			50%{background-position: 100% 50%;}
+			100%{background-position: 0 50%;}
+		}
+		
+		head{
+			overflow: hidden;
+		}
+	</style>
+</head>
+
+
+<section>
 <body>
+
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 		<div class="container-fluid">
 			<div class="collapse navbar-collapse" id="navbarText">
@@ -63,13 +109,13 @@
 		<table class="table table-dark table">
 			<thead>
 				<tr>
-					<th>ID</th>
-					<th>Nombre</th>
-					<th>Precio</th>
-					<th>Stock</th>
-					<th>Imagen</th>
-					<th>Descripción</th>
-					<th colspan="2">Acciones</th>
+					<th class="text-center">ID</th>
+					<th class="text-center">Nombre</th>
+					<th class="text-center" width="10%">Precio</th>
+					<th class="text-center" colspan="2">Stock</th>
+					<th class="text-center">Imagen</th>
+					<th class="text-center">Descripción</th >
+					<th class="text-center"colspan="2">Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -77,12 +123,12 @@
 					<td th:text="${producto.id}"></td>
 					<td th:text="${producto.nombre}"></td>
 					<td th:text="${producto.precio}"></td>
-					<td th:text="${producto.stock}"></td>
+					<td th:text=" ${producto.stock}"></td>
 					<td th:file="${producto.foto}"></td>
 					<td>
-						<img th:src="@{'/recursos/'+${producto.foto}}" th:alt="${producto.foto}" style="max-width:50%; max-height:50%">
+						<img th:src="@{'/recursos/'+${producto.foto}}" th:alt="${producto.foto}" style="max-width:50%; max-height:30%">
 					</td>
-					<td th:text="${producto.descripcion}"></td>
+					<td class="text-left" th:text="${producto.descripcion}"></td>
 					<td>
 						<a th:href="@{/private/editar/}+${producto.id}" class="btn btn-success">
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -104,7 +150,7 @@
 						</a>
 					</td>
 				</tr>
-			</tbody>
+			</tbody >
 		</table>
 	</div>
 
@@ -113,4 +159,5 @@
 
 </body>
 
+</section>
 </html>

@@ -29,6 +29,46 @@
 	}
 </style>
 
+<head>
+	<title></title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		section{
+			width: 100%;
+			
+			
+			background: linear-gradient(45deg,red,rgb(164, 225, 255),rgb(0, 128, 128),black);
+			background-size: 400% 400%;
+			position: relative;
+			animation: cambiar 10s ease-in-out infinite;
+			background-attachment: scroll;
+			background-repeat:repeat-y;
+			position:-ms-page;
+			position: sticky;
+			top:80px;
+			display:inline-block;
+			overflow:auto
+    		
+        
+		}
+		
+
+		@keyframes cambiar{
+			0%{background-position: 0 50%;}
+			50%{background-position: 100% 50%;}
+			100%{background-position: 0 50%;}
+		}
+		
+		head{
+			overflow: hidden;
+		}
+	</style>
+</head>
+
+<section>
 <body>
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -95,6 +135,7 @@
 	</div>
 	</div>
 </body>
+</section>
 </head>
 
 </html>
