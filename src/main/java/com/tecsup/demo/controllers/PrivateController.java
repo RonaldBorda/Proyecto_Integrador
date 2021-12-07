@@ -63,8 +63,9 @@ public class PrivateController {
 	public String save(@RequestParam(name="file",required=false) MultipartFile foto, Producto p,
 			RedirectAttributes flash) {
 		if(!foto.isEmpty()) {
-			String ruta="C://Producto//recursos";
-			
+
+			String ruta="D://Producto//recursos";
+
 			try {
 				byte[] bytes = foto.getBytes();
 				Path rutaAbsoluta = Paths.get(ruta+"//"+foto.getOriginalFilename());
