@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layouts/base-layout::head"></head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+<style type="text/css">
+	body {
+		font-family: 'Comfortaa', cursive;
+		
+	}
+
+	.formulario {
+		width: 45%;
+		margin: auto;	
+		background-color: #ABB2B9;
+		height: 560px;
+		border-radius: 10px;
+	}
+	.formulario h1{
+		color:white;
+		font-weight: bold;
+		
+	}
+	.formulario label{
+		color:white;
+		font-weight: bold;
+	}
+</style>
+
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+			<div class="container-fluid">
+				<div class="collapse navbar-collapse" id="navbarText">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" th:href="@{/auth/login}">Iniciar Sesión</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" th:href="@{/auth/registro}">Registrate</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="#">Contáctanos</a>
+						</li>
+					</ul>
+					<form class="d-flex">
+						<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+						<button class="btn btn-success" type="submit">Search</button>
+					</form>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<br>
+
+	<div class="formulario">
+		<div>
+			<form th:action="@{/private/save}" th:object=${producto} method="POST" enctype="multipart/form-data"><br>
+				<div>
+					<center><h1>Productos</h1></center>
+				</div>
+				<div class="card-body">
+
+					<div class="form-group">
+						<input type="hidden" th:field="*{id}">
+						<label>Nombre</label>
+						<input th:field="*{nombre}" required type="text" class="form-control" />
+					</div>
+					<div class="form-group">
+						<label>Precio</label>
+						<input  th:field="*{precio}" required type="text" class="form-control" />
+					</div>
+					<div class="form-group">
+						<label>Stock</label>
+						<input  th:field="*{stock}" required type="text" class="form-control" />
+					</div>
+					
+					<div class="form-group">
+						<label>Imagen</label>
+						<input  type="file" name="file" class="form-control" />
+					</div>
+					
+					<div class="form-group">
+						<label>Descripción</label>
+						<textarea  th:field="*{descripcion}" required type="text" class="form-control" ></textarea>
+					</div>
+				</div>
+				<div>
+					<center><input type="submit" value="Guardar" class="btn btn-success"></center>
+				</div>
+		</div>
+		</form>
+	</div>
+	</div>
+</body>
+</head>
+
+</html>

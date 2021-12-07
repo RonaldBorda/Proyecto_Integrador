@@ -9,7 +9,8 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "producto")
-public class Producto {
+public class Producto{
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -22,18 +23,32 @@ public class Producto {
 	@NotNull
 	private String descripcion;
 	
+	private String foto;
+	
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	
+	
 	public Producto(int id, @NotNull String nombre, @NotNull int stock, @NotNull double precio,
-			@NotNull String descripcion) {
+			@NotNull String descripcion, String foto) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.stock = stock;
 		this.precio = precio;
 		this.descripcion = descripcion;
+		this.foto = foto;
 	}
-	
+
 	public Producto() {
-		
+		super();
 	}
 
 	public int getId() {

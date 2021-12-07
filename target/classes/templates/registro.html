@@ -1,86 +1,114 @@
 <!DOCTYPE html>
 <html>
-   <head th:replace="layouts/base-layout::head"></head>
-   	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet"> 
-   <style type="text/css">
-   		body{
-		    font-family: 'Comfortaa', cursive;
-		}
 
-   		.formulario{
-			width:40%;
-			margin:auto;
-			
-		}
-   </style>
-   <body>
-   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/auth/login}">Iniciar Sesión</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/auth/registro}">Registrate</a>
-                  </li>
-                  <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Contáctanos</a>
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-success" type="submit">Search</button>
-                  </form>
-              </div>
-        </div>
-    </nav>
+<head th:replace="layouts/base-layout::head"></head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+<style type="text/css">
+	body {
+		font-family: 'Comfortaa', cursive;
+		background-image: url("https://images.pexels.com/photos/1631677/pexels-photo-1631677.jpeg?cs=srgb&dl=pexels-abdullah-ghatasheh-1631677.jpg&fm=jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
 
-    <div class="formulario">
-        <br>
-        <form th:action="@{/auth/registro}"th:object="${usuario}"method="POST">
-            <center><h1>Registrate</h1></center><hr>
-            <div class="mb-3">
-                <div class="col-auto">
-                    <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                    <div class="col-auto">
-                        <input type="text" class="form-control" th:field="*{nombre}" aria-describedby="passwordHelpInline">
-                    </div>
-                    
-                    <label for="exampleInputEmail1" class="form-label">Apellidos</label>
-                    <div class="col-auto">
-                        <input type="text" class="form-control" th:field="*{apellido}" aria-describedby="passwordHelpInline">
-                    </div>
+	.formulario {
+		width: 40%;
+		margin: auto;
+		background-color: #ABB2B9;
+		height: 530px;
+		border-radius: 10px;
+	}
 
-                    <label for="exampleInputEmail1" class="form-label">Email</label>
-                    <div class="col-auto">
-                        <input type="email" class="form-control" th:field="*{email}" aria-describedby="passwordHelpInline">
-                    </div>
+	.formulario form h1 {
+		color: white;
+		font-weight: bold;
+	}
 
-                    <label for="exampleInputEmail1" class="form-label">Usuario</label>
-                    <div class="col-auto">
-                        <input type="text" class="form-control" th:field="*{username}" aria-describedby="passwordHelpInline">
-                    </div>
+	.formulario label {
+		color: white;
+		font-weight: bold;
+	}
+</style>
 
-                    <label for="exampleInputEmail1" class="form-label">Contraseña</label>
-                    <div class="col-auto">
-                        <input type="password" class="form-control" th:field="*{password}" aria-describedby="passwordHelpInline">
-                    </div>
-                    
-                    <br>
-                    <center>
-                    <div class="d-grid gap-2 col-3 mx-auto">
-                    <input type="submit" class="btn btn-success" value="Enviar">
-                    </div>
-                    </center>
-                </div>
-            </div>
-            
-        </form>
-        
-    </div>
-   
-   </body>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<div class="container-fluid">
+			<div class="collapse navbar-collapse" id="navbarText">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" th:href="@{/auth/login}">Iniciar Sesión</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" th:href="@{/auth/registro}">Registrate</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="#">Contáctanos</a>
+					</li>
+				</ul>
+				<form class="d-flex">
+					<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-success" type="submit">Search</button>
+				</form>
+			</div>
+		</div>
+	</nav><br>
+
+	<div class="formulario">
+		<div class="row justify-content-center">
+			<dvi class="col-md-9">
+				<form th:action="@{/auth/registro}" th:object="${usuario}" method="POST"><br>
+					<center>
+						<h1>Registrate</h1>
+					</center>
+					<div class="mb-3">
+						<div class="col-auto">
+							<label for="exampleInputEmail1" class="form-label">Nombre</label>
+							<div class="col-auto">
+								<input type="text" placeholder="Ingresar nombre" required class="form-control"
+									th:field="*{nombre}" aria-describedby="passwordHelpInline">
+							</div>
+
+							<label for="exampleInputEmail1" class="form-label">Apellidos</label>
+							<div class="col-auto">
+								<input type="text" placeholder="Ingresar apellido" required class="form-control"
+									th:field="*{apellido}" aria-describedby="passwordHelpInline">
+							</div>
+
+							<label for="exampleInputEmail1" class="form-label">Email</label>
+							<div class="col-auto">
+								<input type="email" placeholder="Ingresar email ejemplo@gamil.com" required
+									class="form-control" th:field="*{email}" aria-describedby="passwordHelpInline">
+							</div>
+
+							<label for="exampleInputEmail1" class="form-label">Usuario</label>
+							<div class="col-auto">
+								<input type="text" placeholder="Ingresar usuario" required class="form-control"
+									th:field="*{username}" aria-describedby="passwordHelpInline">
+							</div>
+
+							<label for="exampleInputEmail1" class="form-label">Contraseña</label>
+							<div class="col-auto">
+								<input type="password" placeholder="Ingresar contraseña" required class="form-control"
+									th:field="*{password}" aria-describedby="passwordHelpInline">
+							</div>
+
+							<br>
+							<center>
+								<div class="d-grid gap-2 col-3 mx-auto">
+									
+									<input type="submit" class="btn btn-success" value="Enviar">
+								</div>
+							</center>
+						</div>
+					</div>
+
+				</form>
+			</dvi>
+		</div>
+	</div>
+
+</body>
+
 </html>
